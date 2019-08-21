@@ -7,7 +7,7 @@ import { IConfig } from "./interfaces/SLPInterfaces"
 import { SLPDB } from "./SLPDB"
 import { Socket } from "./Socket"
 import TokenType1 from "./TokenType1"
-import Utils from "./Utils"
+import Util from "./Util"
 
 // exports
 const REST_URL = "https://rest.bitcoin.com/v2/"
@@ -25,7 +25,8 @@ class SLP extends BITBOX {
   HDNode: any
   SLPDB: SLPDB
   TokenType1: TokenType1
-  Utils: Utils
+  Utils: any
+  Util: any
   slpjs: any
   constructor(config: IConfig = {}) {
     super(config)
@@ -44,7 +45,8 @@ class SLP extends BITBOX {
     this.SLPDB = new SLPDB(this.slpdbURL)
     this.Socket = Socket
     this.TokenType1 = new TokenType1(restURL)
-    this.Utils = new Utils(restURL)
+    this.Util = new Util(restURL)
+    this.Utils = this.Util
     this.slpjs = slpjs
   }
 }
